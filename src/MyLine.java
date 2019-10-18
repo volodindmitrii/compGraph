@@ -110,14 +110,14 @@ public class MyLine {
             bx = 0;
         }
         boolean checkX2 = false;
-        if (Math.abs(x2-x) <= 2) checkX2 = true;
+        if (Math.abs(x2-x) <= 1) checkX2 = true;
         boolean checkY1 = false;
-        if (Math.abs(y1-y) <= 2) {
+        if (Math.abs(y1-y) <= 1) {
             checkY1 = true;
             by = 0;
         }
         boolean checkY2 = false;
-        if (Math.abs(y2-y) <= 2) checkY2 = true;
+        if (Math.abs(y2-y) <= 1) checkY2 = true;
         int s = ax*by - bx*ay;
         if (checkX1 && checkY1) return PointPosition.ORIGIN;
         else if (checkX2 && checkY2) return PointPosition.DESTINATION;
@@ -140,13 +140,6 @@ public class MyLine {
         int nx = yd - yc;
         int ny = xc - xd;
         int denom = nx*(xb-xa) + ny*(yb-ya);
-//        System.out.println(nx);
-//        System.out.println(ny);
-//        System.out.println(xa + "|" + ya);
-//        System.out.println(xb + "|" + yb);
-//        System.out.println(xc + "|" + yc);
-//        System.out.println(xd + "|" + yd);
-//        System.out.println(denom);
         int num = nx*(xa-xc) + ny*(ya-yc);
         if (Math.abs(denom) <= 2)
             denom = 0;

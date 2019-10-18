@@ -14,12 +14,14 @@ class DrawingPanel extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+        Graphics2D g2 = (Graphics2D) g;
 
 
-        boolean asdfasdf = false;
+        boolean checkerLinePolygon = false;
 
 
-        if (asdfasdf) {
+        if (checkerLinePolygon) {
+//----------------Line------------------------------------------//
             Point point1;
             Point point2;
             g.setColor(Color.RED);
@@ -30,8 +32,7 @@ class DrawingPanel extends JPanel {
             point1 = new Point(a1, a2);
             point2 = new Point(b1, b2);
             for (Point point : (new MyLine(point1, point2)).getPoints()) {
-//            System.out.print(point.x, point.y);
-                g.drawLine(point.x, point.y, point.x, point.y);
+                g2.drawLine(point.x, point.y, point.x, point.y);
             }
             g.setColor(Color.BLUE);
             int a11 = 300;
@@ -42,28 +43,31 @@ class DrawingPanel extends JPanel {
             point2 = new Point(b11, b22);
             for (Point point : (new MyLine(point2, point1)).getPoints()) {
 //            System.out.println(point.x, point.y);
-                g.drawLine(point.x, point.y, point.x, point.y);
+                g2.drawLine(point.x, point.y, point.x, point.y);
             }
 
             System.out.println((new MyLine(new Point(a1, a2), new Point(b1, b2))).
                     relativityLine((new MyLine(new Point(a11, a22), new Point(b11, b22))), 1));
         }
-//----------------------------------------------------------//
+//----------------Polygon------------------------------------------//
         else {
             g.setColor(Color.BLUE);
             ArrayList<Point> tops = new ArrayList<>();
             tops.add(new Point(60, 50));
-            tops.add(new Point(55, 55));
-            tops.add(new Point(65, 60));
-            tops.add(new Point(70, 45));
+            tops.add(new Point(50, 250));
+            tops.add(new Point(300, 400));
+            tops.add(new Point(200, 40));
             MyPolygon polygon = new MyPolygon(tops);
             for (MyLine line : polygon.getLines()) {
                 for (Point point : line.getPoints()) {
-                    g.drawLine(point.x, point.y, point.x, point.y);
+                    g2.drawLine(point.x, point.y, point.x, point.y);
                 }
             }
+//----------------Is Simple------------------------------------------//
             System.out.println(polygon.isConvex());
+//----------------Is convex------------------------------------------//
             System.out.println(polygon.isSimple());
+//----------------Pain Over------------------------------------------//
             Point point;
             int xMax = tops.get(0).x;
             int yMax = tops.get(0).y;
@@ -79,19 +83,37 @@ class DrawingPanel extends JPanel {
                 if (apoint.y < yMin)
                     yMin = apoint.y;
             }
-//            for (int i = xMin; i <= xMax+2; i++) {
-            int i = 50;
-                for (int j = xMin; j <= xMax; j++) {
-                    point = new Point(i, j);
-                    if (ifPaint(point, xMax+1, polygon.getLines())) {
-                        g.drawLine(point.x, point.y, point.x, point.y);
+
+
+            boolean howToPaint = false;
+
+
+//----------------EO------------------------------------------//
+            if (howToPaint) {
+                for (int i = xMin; i < xMax; i++) {
+                    for (int j = yMin; j <= yMax; j++) {
+                        point = new Point(i, j);
+                        if (ifEOPaint(point, xMax + 1, polygon.getLines())) {
+                            g.drawOval(point.x, point.y, 0, 0);
+                        }
                     }
                 }
-//            }
+            }
+//----------------NZW-----------------------------------------//
+            else {
+                for (int i = xMin; i < xMax; i++) {
+                    for (int j = yMin; j <= yMax; j++) {
+                        point = new Point(i, j);
+                        if (ifNZWPaint(point, xMax + 1, polygon.getLines())) {
+                            g.drawOval(point.x, point.y, 0, 0);
+                        }
+                    }
+                }
+            }
         }
     }
 
-    private boolean ifPaint(Point point, int xMax, ArrayList<MyLine> lines) {
+    private boolean ifEOPaint(Point point, int xMax, ArrayList<MyLine> lines) {
         int checker = 0;
         Point point1 = new Point(xMax, point.y);
         for (MyLine line : lines) {
@@ -99,9 +121,46 @@ class DrawingPanel extends JPanel {
                 checker += 1;
             }
         }
-        System.out.println(checker%2);
-        if (checker%2 == 0) return true;
-        return false;
+        if (checker%2 == 0) return false;
+        return true;
 
+    }
+
+    private boolean ifNZWPaint(Point point, int xMax, ArrayList<MyLine> lines) {
+        CrossDirection direction;
+        int counter = 0;
+        for (MyLine line : lines){
+            if (line.relativityLine(new MyLine(point, new Point(xMax, point.y)), 1) == IntersectionPosition.SKEW_CROSS) {
+                switch (line.relativityPoint(point)) {
+                    case LEFT:
+                        if ((point.y>line.y1) && (point.y<=line.y2))
+                            direction = CrossDirection.CROSS_LEFT;
+                        else
+                            direction =  CrossDirection.INESSENTIAL;
+                        break;
+                    case RIGHT:
+                        if ((point.y>line.y2) && (point.y<=line.y1))
+                            direction =  CrossDirection.CROSS_RIGHT;
+                        else
+                            direction =  CrossDirection.INESSENTIAL;
+                        break;
+                    case BETWEEN:
+                    case ORIGIN:
+                    case DESTINATION:
+                        direction =  CrossDirection.TOUCHING;
+                        break;
+                    default:
+                        direction =  CrossDirection.INESSENTIAL;
+                        break;
+                }
+                if (direction == CrossDirection.CROSS_LEFT)
+                    counter += 1;
+                else if (direction == CrossDirection.CROSS_RIGHT)
+                    counter -= 1;
+            }
+        }
+        if (counter == 0)
+            return false;
+        return true;
     }
 }

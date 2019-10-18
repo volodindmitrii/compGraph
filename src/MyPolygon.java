@@ -57,45 +57,4 @@ public class MyPolygon {
         return PolygonProperties.SIMPLE;
     }
 
-    public Stack<Point> paintOverEO() {
-        Stack<Point> pointsForDrawing = new Stack<>();
-        Point point;
-        int xMax = tops.get(0).x;
-        int yMax = tops.get(0).y;
-        int xMin = tops.get(0).x;
-        int yMin = tops.get(0).y;
-        for (Point apoint : tops) {
-            if (apoint.x > xMax)
-                xMax = apoint.x;
-            if (apoint.y > yMax)
-                yMax = apoint.y;
-            if (apoint.x < xMin)
-                xMin = apoint.x;
-            if (apoint.y < yMin)
-                yMin = apoint.y;
-        }
-        for (int i = xMin; i < xMax; i++) {
-            for (int j = xMin; j < xMax; j++) {
-                point = new Point(i, j);
-                if (ifPaint(point, xMax)) {
-                    pointsForDrawing.add(point);
-                }
-            }
-        }
-        return pointsForDrawing;
-    }
-
-
-    private boolean ifPaint(Point point, int xMax) {
-        int checker = 0;
-        Point point1 = new Point(xMax, point.x);
-        for (MyLine line : this.lines) {
-            if (line.relativityLine(new MyLine(point, point1), 1) == IntersectionPosition.SKEW_CROSS) {
-                checker += 1;
-            }
-        }
-        if (checker%2 == 0) return false;
-        return true;
-
-    }
 }
