@@ -24,75 +24,78 @@ public class MyLine {
     }
 
     private void drawLine(Point point1, Point point2) {
-        int deltaX = point1.x - point2.x;
-        int deltaY = point1.y - point2.y;
-        double delta = Math.abs((double)deltaX / deltaY);
-        int E;
-        int x = point1.x;
-        int y = point1.y;
-        int con;
-        if (delta>=1) {
-            E = 2 * Math.abs(deltaY) - Math.abs(deltaX);
-            if (point1.x < point2.x) {
-                con = 1;
-            } else {
-                con = -1;
-            }
-            this.points.add(new Point(x, y));
-            deltaY = point2.y - y;
-            if (deltaY > 0) {
-                while (x != point2.x-con) {
-                    E += 2 * Math.abs(deltaY);
-                    x+=con;
-                    if (E > 0) {
-                        y++;
-                        E -= 2 * Math.abs(deltaX);
-                    }
-                    this.points.add(new Point(x, y));
-                }
-            } else {
-                while (x != point2.x-con) {
-                    E += 2 * Math.abs(deltaY);
-                    x+=con;
-                    if (E >= 0) {
-                        y--;
-                        E -= 2 * Math.abs(deltaX);
-                    }
-                    this.points.add(new Point(x, y));
-                }
-            }
+        int x0 = point1.x;
+        int y0 = point1.y;
+        int x1 = point2.x;
+        int y1 = point2.y;
+        int dx = Math.abs(x1 - x0);
+        int dy = Math.abs(y1 - y0);
+        int signX = x1 > x0 ? 1 : -1;
+        int signY = y1 > y0 ? 1 : -1;
+        if (dx == 0 && dy == 0)
+        {
+            points.add(new Point(x0, y0));
         }
-        else {
-            E = 2 * Math.abs(deltaX) - Math.abs(deltaY);
-            if (point1.y < point2.y) {
-                con = 1;
-            }
-            else {
-                con = -1;
-            }
-            this.points.add(new Point(x, y));
-            deltaX = point2.x-x;
-            if (deltaX > 0){
-                while (y != point2.y-con) {
-                    E += 2 * Math.abs(deltaX);
-                    y+=con;
-                    if (E > 0) {
-                        x++;
-                        E -= 2 * Math.abs(deltaY);
+        else
+        {
+            if (dx - dy >= 0)
+            {
+                int x = x0;
+                int y = y0;
+                int E = 2 * dy - dx;
+                while (x != x1 || y != y1)
+                {
+                    points.add(new Point(x, y));
+                    if (signY >= 0)
+                    {
+                        if (E >= 0)
+                        {
+                            E -= 2 * dx;
+                            y += signY;
+                        }
                     }
-                    this.points.add(new Point(x, y));
-                }
-            }
-            else {
-                while (y != point2.y-con) {
-                    E += 2 * Math.abs(deltaX);
-                    y+=con;
-                    if (E >= 0) {
-                        x--;
-                        E -= 2 * Math.abs(deltaY);
+                    else
+                    {
+                        if (E > 0)
+                        {
+                            E -= 2 * dx;
+                            y += signY;
+                        }
                     }
-                    this.points.add(new Point(x, y));
+                    x += signX;
+                    E += 2 * dy;
+
                 }
+                points.add(new Point(x, y));
+            }
+            else
+            {
+                int x = x0;
+                int y = y0;
+                int E = 2 * dx - dy;
+                while (x != x1 || y != y1)
+                {
+                    points.add(new Point(x, y));
+                    if (signX >= 0)
+                    {
+                        if (E >= 0)
+                        {
+                            E -= 2 * dy;
+                            x += signX;
+                        }
+                    }
+                    else
+                    {
+                        if (E > 0)
+                        {
+                            E -= 2 * dy;
+                            x += signX;
+                        }
+                    }
+                    y += signY;
+                    E += 2 * dx;
+                }
+                points.add(new Point(x, y));
             }
         }
     }
@@ -105,19 +108,19 @@ public class MyLine {
         int ay = y2 - y1;
         int by = y - y1;
         boolean checkX1 = false;
-        if (Math.abs(x1-x) <= 2) {
+        if (Math.abs(x1-x) <= 0) {
             checkX1 = true;
             bx = 0;
         }
         boolean checkX2 = false;
-        if (Math.abs(x2-x) <= 1) checkX2 = true;
+        if (Math.abs(x2-x) <= 0) checkX2 = true;
         boolean checkY1 = false;
-        if (Math.abs(y1-y) <= 1) {
+        if (Math.abs(y1-y) <= 0) {
             checkY1 = true;
             by = 0;
         }
         boolean checkY2 = false;
-        if (Math.abs(y2-y) <= 1) checkY2 = true;
+        if (Math.abs(y2-y) <= 2) checkY2 = true;
         int s = ax*by - bx*ay;
         if (checkX1 && checkY1) return PointPosition.ORIGIN;
         else if (checkX2 && checkY2) return PointPosition.DESTINATION;
@@ -141,9 +144,9 @@ public class MyLine {
         int ny = xc - xd;
         int denom = nx*(xb-xa) + ny*(yb-ya);
         int num = nx*(xa-xc) + ny*(ya-yc);
-        if (Math.abs(denom) <= 2)
+        if (Math.abs(denom) <= 0)
             denom = 0;
-        if (Math.abs(num) <= 2)
+        if (Math.abs(num) <= 0)
             num = 0;
         PointPosition type;
         if (denom == 0) {

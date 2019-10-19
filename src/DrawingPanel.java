@@ -56,9 +56,11 @@ class DrawingPanel extends JPanel {
             tops.add(new Point(60, 50));
             tops.add(new Point(50, 250));
             tops.add(new Point(300, 400));
-            tops.add(new Point(200, 40));
+            tops.add(new Point(200, 10));
             MyPolygon polygon = new MyPolygon(tops);
             for (MyLine line : polygon.getLines()) {
+//                System.out.println(line.x1 + " | " + line.y1);
+//                System.out.println(line.x2 + " | " + line.y2);
                 for (Point point : line.getPoints()) {
                     g2.drawLine(point.x, point.y, point.x, point.y);
                 }
@@ -85,7 +87,7 @@ class DrawingPanel extends JPanel {
             }
 
 
-            boolean howToPaint = false;
+            boolean howToPaint = true;
 
 
 //----------------EO------------------------------------------//
@@ -117,9 +119,12 @@ class DrawingPanel extends JPanel {
         int checker = 0;
         Point point1 = new Point(xMax, point.y);
         for (MyLine line : lines) {
+//            if (((point.y != line.y1) || (point.x >= line.x1)) && ((point.y != line.y2) || (point.x >= line.x2))) {
             if (line.relativityLine(new MyLine(point, point1), 1) == IntersectionPosition.SKEW_CROSS) {
                 checker += 1;
-            }
+                }
+//            }
+
         }
         if (checker%2 == 0) return false;
         return true;
@@ -147,8 +152,7 @@ class DrawingPanel extends JPanel {
                     case BETWEEN:
                     case ORIGIN:
                     case DESTINATION:
-                        direction =  CrossDirection.TOUCHING;
-                        break;
+                        return false;
                     default:
                         direction =  CrossDirection.INESSENTIAL;
                         break;
@@ -157,6 +161,7 @@ class DrawingPanel extends JPanel {
                     counter += 1;
                 else if (direction == CrossDirection.CROSS_RIGHT)
                     counter -= 1;
+
             }
         }
         if (counter == 0)

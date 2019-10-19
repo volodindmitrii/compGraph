@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b2d769d9-2437-43c3-b2ed-e2cb0d99de77" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/CrossDirection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ComputeGraphics/DrawingPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ComputeGraphics/DrawingPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ComputeGraphics/MyLine.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ComputeGraphics/MyLine.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ComputeGraphics/MyPolygon.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ComputeGraphics/MyPolygon.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DrawingPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DrawingPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MyLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyLine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MyPolygon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyPolygon.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,29 +16,27 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DrawingPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="87">
-              <caret line="103" column="47" selection-start-line="103" selection-start-column="47" selection-end-line="103" selection-end-column="47" />
+            <state relative-caret-position="136">
+              <caret line="58" column="41" lean-forward="true" selection-start-line="58" selection-start-column="41" selection-end-line="58" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#ifEOPaint#0;class#DrawingPanel#0" />
-                <element signature="method#ifNZW#0;class#DrawingPanel#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MyLine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="119" column="31" selection-start-line="119" selection-start-column="31" selection-end-line="119" selection-end-column="31" />
+            <state relative-caret-position="323">
+              <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#MyLine#0;class#MyLine#0" />
-                <element signature="method#drawLine#0;class#MyLine#0" />
+                <element signature="method#DrawLine#0;class#MyLine#0" />
+                <element signature="method#relativityPoint#0;class#MyLine#0" />
                 <element signature="method#relativityLine#0;class#MyLine#0" />
               </folding>
             </state>
@@ -136,9 +130,9 @@
         <option value="$PROJECT_DIR$/src/IntersectionPosition.java" />
         <option value="$PROJECT_DIR$/src/PolygonProperties.java" />
         <option value="$PROJECT_DIR$/src/MyPolygon.java" />
-        <option value="$PROJECT_DIR$/src/MyLine.java" />
         <option value="$PROJECT_DIR$/src/CrossDirection.java" />
         <option value="$PROJECT_DIR$/src/DrawingPanel.java" />
+        <option value="$PROJECT_DIR$/src/MyLine.java" />
       </list>
     </option>
   </component>
@@ -176,7 +170,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1571429955004" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1571475497017" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -225,7 +219,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571343450415</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="3nd; paint over, work with errors near tops">
+      <created>1571430036620</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1571430036620</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -246,8 +247,8 @@
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="SonarLint" order="5" />
       <window_info anchor="bottom" id="Find" order="6" />
-      <window_info active="true" anchor="bottom" id="Run" order="7" visible="true" weight="0.30311614" />
-      <window_info anchor="bottom" id="Debug" order="8" weight="0.40934843" />
+      <window_info active="true" anchor="bottom" id="Run" order="7" visible="true" weight="0.16147308" />
+      <window_info anchor="bottom" id="Debug" order="8" weight="0.15439093" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="11" />
@@ -263,7 +264,20 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="2nd; paint over, don't work" />
-    <option name="LAST_COMMIT_MESSAGE" value="2nd; paint over, don't work" />
+    <MESSAGE value="3nd; paint over, work with errors near tops" />
+    <option name="LAST_COMMIT_MESSAGE" value="3nd; paint over, work with errors near tops" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/DrawingPanel.java</url>
+          <line>137</line>
+          <properties />
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/src.zip!/java/awt/Point.java">
@@ -308,33 +322,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MyPolygon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="58" selection-start-line="58" selection-end-line="58" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#MyPolygon#0;class#MyPolygon#0" />
-            <element signature="method#topsToLines#0;class#MyPolygon#0" />
-            <element signature="method#isConvex#0;class#MyPolygon#0" />
-            <element signature="method#isSimple#0;class#MyPolygon#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MyLine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="119" column="31" selection-start-line="119" selection-start-column="31" selection-end-line="119" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#MyLine#0;class#MyLine#0" />
-            <element signature="method#drawLine#0;class#MyLine#0" />
-            <element signature="method#relativityLine#0;class#MyLine#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/PointPosition.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -349,14 +336,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DrawingPanel.java">
+    <entry file="file://$PROJECT_DIR$/src/MyPolygon.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="103" column="47" selection-start-line="103" selection-start-column="47" selection-end-line="103" selection-end-column="47" />
+        <state relative-caret-position="289">
+          <caret line="58" selection-start-line="58" selection-end-line="58" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#ifEOPaint#0;class#DrawingPanel#0" />
-            <element signature="method#ifNZW#0;class#DrawingPanel#0" />
+            <element signature="method#MyPolygon#0;class#MyPolygon#0" />
+            <element signature="method#topsToLines#0;class#MyPolygon#0" />
+            <element signature="method#isConvex#0;class#MyPolygon#0" />
+            <element signature="method#isSimple#0;class#MyPolygon#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DrawingPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="58" column="41" lean-forward="true" selection-start-line="58" selection-start-column="41" selection-end-line="58" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MyLine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#DrawLine#0;class#MyLine#0" />
+            <element signature="method#relativityPoint#0;class#MyLine#0" />
+            <element signature="method#relativityLine#0;class#MyLine#0" />
           </folding>
         </state>
       </provider>
