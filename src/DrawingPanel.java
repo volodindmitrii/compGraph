@@ -87,13 +87,13 @@ class DrawingPanel extends JPanel {
             }
 
 
-            boolean howToPaint = true;
+            boolean howToPaint = false;
 
 
 //----------------EO------------------------------------------//
             if (howToPaint) {
-                for (int i = xMin; i < xMax; i++) {
-                    for (int j = yMin; j <= yMax; j++) {
+                for (int i = xMin+1; i < xMax; i++) {
+                    for (int j = yMin+1; j < yMax; j++) {
                         point = new Point(i, j);
                         if (ifEOPaint(point, xMax + 1, polygon.getLines())) {
                             g.drawOval(point.x, point.y, 0, 0);
@@ -103,8 +103,8 @@ class DrawingPanel extends JPanel {
             }
 //----------------NZW-----------------------------------------//
             else {
-                for (int i = xMin; i < xMax; i++) {
-                    for (int j = yMin; j <= yMax; j++) {
+                for (int i = xMin+1; i < xMax; i++) {
+                    for (int j = 49; j <= yMax; j++) {
                         point = new Point(i, j);
                         if (ifNZWPaint(point, xMax + 1, polygon.getLines())) {
                             g.drawOval(point.x, point.y, 0, 0);
@@ -119,12 +119,12 @@ class DrawingPanel extends JPanel {
         int checker = 0;
         Point point1 = new Point(xMax, point.y);
         for (MyLine line : lines) {
-//            if (((point.y != line.y1) || (point.x >= line.x1)) && ((point.y != line.y2) || (point.x >= line.x2))) {
-            if (line.relativityLine(new MyLine(point, point1), 1) == IntersectionPosition.SKEW_CROSS) {
+            IntersectionPosition pos = line.relativityLine(new MyLine(point, point1), 1);
+            if (pos == IntersectionPosition.SKEW_CROSS)
                 checker += 1;
-                }
-//            }
-
+            PointPosition posPoint = (new MyLine(point, point1)).relativityPoint(new Point(line.x1, line.y1));
+            if (posPoint == PointPosition.BETWEEN)
+                checker += 1;
         }
         if (checker%2 == 0) return false;
         return true;
@@ -160,6 +160,9 @@ class DrawingPanel extends JPanel {
                 if (direction == CrossDirection.CROSS_LEFT)
                     counter += 1;
                 else if (direction == CrossDirection.CROSS_RIGHT)
+                    counter -= 1;
+                PointPosition posPoint = (new MyLine(point, new Point(xMax, point.y))).relativityPoint(new Point(line.x1, line.y1));
+                if (posPoint == PointPosition.BETWEEN && line.y2 < point.y)
                     counter -= 1;
 
             }

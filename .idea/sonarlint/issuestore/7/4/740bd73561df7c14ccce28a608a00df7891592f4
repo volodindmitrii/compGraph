@@ -1,6 +1,9 @@
 
-squid:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(–Ÿ±–8ïıŒåÙ-
-squid:S1488"\Immediately return this expression instead of assigning it to the temporary variable "list".(¤‰’¬ıÿÿÿÿ8ş„ÅÚ-
-psquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 42 to the 15 allowed.(—‚‰ê8ñÙˆåÙ-
-usquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ü§Ü¥ıÿÿÿÿ8ñÙˆåÙ-
-[squid:UselessImportCheck"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8Ú±ÄÚ-
+usquid:S00117-"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ˆÉÇüøÿÿÿÿ8ö²™Ş-
+_squid:HiddenFieldCheck"6Rename "y1" which hides the field declared at line 10.(ç…¤Î8É„¿™Ş-
+usquid:S00117K"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ª÷·µüÿÿÿÿ8ö²™Ş-
+Ssquid:S1191"5Use classes from the Java API instead of Sun classes.(İ‡‹º8úØûÜ-
+^squid:HiddenFieldCheck"5Rename "x1" which hides the field declared at line 8.(œ È8É„¿™Ş-
+csquid:UselessImportCheck"8Remove this unused import 'com.sun.javafx.geom.Point2D'.(İ‡‹º8úØûÜ-
+psquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 46 to the 15 allowed.(—‚‰ê8ÖÕµ™Ş-
+squid:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(–Ÿ±–8ïıŒåÙ-
