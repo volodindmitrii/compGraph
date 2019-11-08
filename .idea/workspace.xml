@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b2d769d9-2437-43c3-b2ed-e2cb0d99de77" name="Default Changelist" comment="">
+    <list default="true" id="b2d769d9-2437-43c3-b2ed-e2cb0d99de77" name="Default Changelist" comment="4nd; paint over fixing">
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/4/740bd73561df7c14ccce28a608a00df7891592f4" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/4/740bd73561df7c14ccce28a608a00df7891592f4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/b/dbee07f389a2a734026ea2a76365658d0df8dc82" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/b/dbee07f389a2a734026ea2a76365658d0df8dc82" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/6/e6cae0e49af5583ebfe1da4ead78c553ada6b8f8" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/6/e6cae0e49af5583ebfe1da4ead78c553ada6b8f8" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DrawingPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DrawingPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MyLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyLine.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/DrawingPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="56">
-              <caret line="146" column="28" selection-start-line="146" selection-start-column="28" selection-end-line="146" selection-end-column="28" />
+            <state relative-caret-position="243">
+              <caret line="110" column="50" selection-start-line="110" selection-start-column="50" selection-end-line="110" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#ifEOPaint#0;class#DrawingPanel#0" />
@@ -31,11 +29,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MyLine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="155" column="9" lean-forward="true" selection-start-line="155" selection-start-column="9" selection-end-line="155" selection-end-column="9" />
+            <state relative-caret-position="-1">
+              <caret line="134" column="1" selection-start-line="134" selection-start-column="1" selection-end-line="134" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -122,8 +120,8 @@
         <option value="$PROJECT_DIR$/src/MyPolygon.java" />
         <option value="$PROJECT_DIR$/src/CrossDirection.java" />
         <option value="$PROJECT_DIR$/src/IntersectionPosition.java" />
-        <option value="$PROJECT_DIR$/src/DrawingPanel.java" />
         <option value="$PROJECT_DIR$/src/MyLine.java" />
+        <option value="$PROJECT_DIR$/src/DrawingPanel.java" />
       </list>
     </option>
   </component>
@@ -161,7 +159,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573247847235" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573248215681" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
@@ -225,12 +223,18 @@
       <option name="project" value="LOCAL" />
       <updated>1571475539108</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="4nd; paint over fixing">
+      <created>1573247926421</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1573247926421</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="UI Designer" order="1" />
@@ -240,13 +244,13 @@
       <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.11275168" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" order="0" />
-      <window_info anchor="bottom" id="Terminal" order="1" weight="0.3286119" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="1" visible="true" weight="0.40509915" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="3" weight="0.3286119" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="SonarLint" order="5" />
       <window_info anchor="bottom" id="Find" order="6" />
-      <window_info active="true" anchor="bottom" id="Run" order="7" visible="true" weight="0.04249292" />
+      <window_info anchor="bottom" id="Run" order="7" weight="0.46175638" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.5878187" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
@@ -265,7 +269,8 @@
     <MESSAGE value="2nd; paint over, don't work" />
     <MESSAGE value="3nd; paint over, work with errors near tops" />
     <MESSAGE value="3nd; paint over, work with error in one top" />
-    <option name="LAST_COMMIT_MESSAGE" value="3nd; paint over, work with error in one top" />
+    <MESSAGE value="4nd; paint over fixing" />
+    <option name="LAST_COMMIT_MESSAGE" value="4nd; paint over fixing" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
@@ -347,23 +352,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DrawingPanel.java">
+    <entry file="file://$PROJECT_DIR$/src/MyLine.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="146" column="28" selection-start-line="146" selection-start-column="28" selection-end-line="146" selection-end-column="28" />
+        <state relative-caret-position="-1">
+          <caret line="134" column="1" selection-start-line="134" selection-start-column="1" selection-end-line="134" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#ifEOPaint#0;class#DrawingPanel#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MyLine.java">
+    <entry file="file://$PROJECT_DIR$/src/DrawingPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="155" column="9" lean-forward="true" selection-start-line="155" selection-start-column="9" selection-end-line="155" selection-end-column="9" />
+        <state relative-caret-position="243">
+          <caret line="110" column="50" selection-start-line="110" selection-start-column="50" selection-end-line="110" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#ifEOPaint#0;class#DrawingPanel#0" />
           </folding>
         </state>
       </provider>

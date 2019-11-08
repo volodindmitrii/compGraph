@@ -42,7 +42,6 @@ class DrawingPanel extends JPanel {
             point1 = new Point(a11, a22);
             point2 = new Point(b11, b22);
             for (Point point : (new MyLine(point2, point1)).getPoints()) {
-//            System.out.println(point.x, point.y);
                 g2.drawLine(point.x, point.y, point.x, point.y);
             }
 
@@ -59,8 +58,6 @@ class DrawingPanel extends JPanel {
             tops.add(new Point(200, 10));
             MyPolygon polygon = new MyPolygon(tops);
             for (MyLine line : polygon.getLines()) {
-//                System.out.println(line.x1 + " | " + line.y1);
-//                System.out.println(line.x2 + " | " + line.y2);
                 for (Point point : line.getPoints()) {
                     g2.drawLine(point.x, point.y, point.x, point.y);
                 }
@@ -110,7 +107,7 @@ class DrawingPanel extends JPanel {
                 for (int i = xMin+1; i < xMax; i++) {
                     for (int j = yMin; j <= yMax-1; j++) {
                         point = new Point(i, j);
-                        if (ifNZWPaint(point, xMax + 1, polygon.getLines(), ys)) {
+                        if (ifNZWPaint(point, xMax + 1, polygon.getLines())) {
                             g.drawOval(point.x, point.y, 0, 0);
                         }
                     }
@@ -135,15 +132,10 @@ class DrawingPanel extends JPanel {
 
     }
 
-    private boolean ifNZWPaint(Point point, int xMax, ArrayList<MyLine> lines, ArrayList<Integer> ys) {
+    private boolean ifNZWPaint(Point point, int xMax, ArrayList<MyLine> lines) {
         CrossDirection direction;
         int counter = 0;
         for (MyLine line : lines){
-//            int counterY = 0;
-//            for (Integer y : ys) {
-//                if (y == point.y)
-//                    counterY+=1;
-//            }
             if (line.relativityLine(new MyLine(point, new Point(xMax, point.y)), 1) == IntersectionPosition.SKEW_CROSS) {
                 switch (line.relativityPoint(point)) {
                     case LEFT:
