@@ -103,10 +103,14 @@ class DrawingPanel extends JPanel {
             }
 //----------------NZW-----------------------------------------//
             else {
+                ArrayList<Integer> ys = new ArrayList<>();
+                for (Point atop : tops){
+                    ys.add(atop.y);
+                }
                 for (int i = xMin+1; i < xMax; i++) {
-                    for (int j = 49; j <= yMax; j++) {
+                    for (int j = yMin; j <= yMax-1; j++) {
                         point = new Point(i, j);
-                        if (ifNZWPaint(point, xMax + 1, polygon.getLines())) {
+                        if (ifNZWPaint(point, xMax + 1, polygon.getLines(), ys)) {
                             g.drawOval(point.x, point.y, 0, 0);
                         }
                     }
@@ -131,10 +135,15 @@ class DrawingPanel extends JPanel {
 
     }
 
-    private boolean ifNZWPaint(Point point, int xMax, ArrayList<MyLine> lines) {
+    private boolean ifNZWPaint(Point point, int xMax, ArrayList<MyLine> lines, ArrayList<Integer> ys) {
         CrossDirection direction;
         int counter = 0;
         for (MyLine line : lines){
+//            int counterY = 0;
+//            for (Integer y : ys) {
+//                if (y == point.y)
+//                    counterY+=1;
+//            }
             if (line.relativityLine(new MyLine(point, new Point(xMax, point.y)), 1) == IntersectionPosition.SKEW_CROSS) {
                 switch (line.relativityPoint(point)) {
                     case LEFT:

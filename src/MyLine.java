@@ -155,7 +155,7 @@ public class MyLine {
             else return IntersectionPosition.COLIINEAR;
         }
         float t = -(float)num/denom;
-        if (0<t && t<1) {
+        if (0<t && t<=1) {
             if (con != 2) {
                 return (new MyLine(new Point(xc, yc), new Point(xd, yd))).relativityLine(new MyLine(new Point(xa, ya), new Point(xb, yb)), 2);
             }
