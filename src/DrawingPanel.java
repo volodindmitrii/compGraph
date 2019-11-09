@@ -52,10 +52,11 @@ class DrawingPanel extends JPanel {
         else {
             g.setColor(Color.BLUE);
             ArrayList<Point> tops = new ArrayList<>();
-            tops.add(new Point(60, 50));
-            tops.add(new Point(50, 250));
-            tops.add(new Point(300, 400));
-            tops.add(new Point(200, 10));
+            tops.add(new Point(50, 300));
+            tops.add(new Point(150, 50));
+            tops.add(new Point(300, 300));
+            tops.add(new Point(30, 150));
+            tops.add(new Point(350, 150));
             MyPolygon polygon = new MyPolygon(tops);
             for (MyLine line : polygon.getLines()) {
                 for (Point point : line.getPoints()) {
