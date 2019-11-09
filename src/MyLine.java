@@ -1,5 +1,3 @@
-import com.sun.javafx.geom.Point2D;
-
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -164,5 +162,21 @@ public class MyLine {
             }
         }
         return IntersectionPosition.SKEW_NON_CROSS;
+    }
+
+    public MyLine clipLine(MyPolygon myPolygon){
+        double t0 = 0;
+        double t1 = 1;
+        double t;
+        int sx = x2 - x1;
+        int sy = y2 - y1;
+        int nx;
+        int ny;
+        int n = myPolygon.getTops().size();
+        for (int i = 0; i < n; i++){
+            nx = myPolygon.getTops().get((i+1)%n).y - myPolygon.getTops().get(i).y;
+            ny = myPolygon.getTops().get(i).x - myPolygon.getTops().get((i+1)%n).x;
+        }
+        return this;
     }
 }

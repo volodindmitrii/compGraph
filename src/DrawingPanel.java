@@ -48,7 +48,7 @@ class DrawingPanel extends JPanel {
 
 
 //----------------Bese------------------------------------------//
-        boolean ifDrawBese = true;
+        boolean ifDrawBese = false;
         if (ifDrawBese) {
             Point point1;
             Point point2;
@@ -59,18 +59,43 @@ class DrawingPanel extends JPanel {
             int a2 = 60;
             point1 = new Point(a1, a2);
             int b1 = 300;
-            int b2 = 300;
+            int b2 = 600;
             point2 = new Point(b1, b2);
-            int c1 = 200;
-            int c2 = 200;
+            int c1 = 300;
+            int c2 = -100;
             point3 = new Point(c1, c2);
             int d1 = 150;
-            int d2 = 400;
+            int d2 = 300;
             point4 = new Point(d1, d2);
             Point[] tops = {point1, point2, point3, point4};
             for (Point point : (new BeseLine(tops)).getPoints()){
                 g.drawLine(point.x, point.y, point.x, point.y);
             }
+            g.setColor(Color.BLUE);
+            g.drawLine(a1, a2, a1, a2);
+            g.drawLine(b1, b2, b1, b2);
+            g.drawLine(c1, c2, c1, c2);
+            g.drawLine(d1, d2, d1, d2);
+        }
+
+        //----------------Clipping------------------------------------------//
+        boolean ifClipping = true;
+        if (ifClipping) {
+            g.setColor(Color.RED);
+            ArrayList<Point> tops = new ArrayList<>();
+            tops.add(new Point(60, 50));
+            tops.add(new Point(50, 200));
+            tops.add(new Point(300, 300));
+            tops.add(new Point(200, 100));
+            MyPolygon polygon = new MyPolygon(tops);
+            for (MyLine line : polygon.getLines()){
+                for (Point apoint : line.getPoints()){
+                    g.drawLine(apoint.x, apoint.y, apoint.x, apoint.y);
+                }
+            }
+            g.setColor(Color.BLUE);
+            MyLine myLine = new MyLine(new Point(50, 60), new Point(300, 600));
+
         }
     }
 }

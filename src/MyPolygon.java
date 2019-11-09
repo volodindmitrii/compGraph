@@ -12,8 +12,9 @@ public class MyPolygon {
     }
 
     public ArrayList<MyLine> getLines() {
-        return this.lines;
+        return lines;
     }
+    public ArrayList<Point> getTops() {return tops;}
 
     private void topsToLines(ArrayList<Point> tops) {
         int len = tops.size();
