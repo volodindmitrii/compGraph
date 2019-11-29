@@ -1,5 +1,6 @@
 
-vsquid:S3776†"RRefactor this method to reduce its Cognitive Complexity from 27 to the 15 allowed.(¶‘¡–ıÿÿÿÿ8Ù¹²œŞ-
-`squid:S1126"AReplace this if-then-else statement by a single return statement.(ëù¬ô8Ù¹²œŞ-
-psquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 52 to the 15 allowed.(ÈÊ“À8şƒ”‡İ-
-esquid:S1126ª"AReplace this if-then-else statement by a single return statement.(±óÎÿüÿÿÿÿ8Ù¹²œŞ-
+gsquid:S25834"DChange this condition so that it does not always evaluate to "false"(š±úÿøÿÿÿÿ8åıÁùä-
+bsquid:S2583"DChange this condition so that it does not always evaluate to "false"(³İÚ8®ÊÂøä-
+Nsquid:S1481a"+Remove this unused "myLine" local variable.(ƒ˜’şÿÿÿÿ8è™ùùä-
+]squid:S1854a":Remove this useless assignment to local variable "myLine".(ƒ˜’şÿÿÿÿ8è™ùùä-
+Zsquid:S2589S"7Remove this expression which always evaluates to "true"(å•îáıÿÿÿÿ8öşÆùä-

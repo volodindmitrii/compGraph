@@ -1,9 +1,11 @@
 
-_squid:HiddenFieldCheck"6Rename "y1" which hides the field declared at line 10.(ç…¤Î8É„¿™Ş-
-psquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 46 to the 15 allowed.(—‚‰ê8ÖÕµ™Ş-
-^squid:HiddenFieldCheck"5Rename "x1" which hides the field declared at line 8.(œ È8É„¿™Ş-
-csquid:UselessImportCheck"8Remove this unused import 'com.sun.javafx.geom.Point2D'.(İ‡‹º8úØûÜ-
-Ssquid:S1191"5Use classes from the Java API instead of Sun classes.(İ‡‹º8úØûÜ-
-squid:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(–Ÿ±–8ïıŒåÙ-
-usquid:S00117-"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ˆÉÇüøÿÿÿÿ8ö²™Ş-
-usquid:S00117K"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ª÷·µüÿÿÿÿ8ö²™Ş-
+Esquid:S1659¨"!Declare "y22" on a separate line.(‡¤Íÿÿÿÿÿ8×•‡Šç-
+usquid:S00117+"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ˆÉÇüøÿÿÿÿ8ö²™Ş-
+Esquid:S1659¨"!Declare "x22" on a separate line.(‡¤Íÿÿÿÿÿ8×•‡Šç-
+psquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 46 to the 15 allowed.(—‚‰ê8ÖÕµ™Ş-
+^squid:HiddenFieldCheck"5Rename "x1" which hides the field declared at line 6.(œ È8É„¿™Ş-
+usquid:S00117I"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ª÷·µüÿÿÿÿ8ö²™Ş-
+squid:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(–Ÿ±–8ïıŒåÙ-
+^squid:HiddenFieldCheck"5Rename "y1" which hides the field declared at line 8.(ç…¤Î8É„¿™Ş-
+Esquid:S1659¨"!Declare "y11" on a separate line.(‡¤Íÿÿÿÿÿ8×•‡Šç-
+qsquid:S3776§"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(ù¡¨Ô8Ë“‰ç-
