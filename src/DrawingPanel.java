@@ -84,9 +84,9 @@ class DrawingPanel extends JPanel {
             g.setColor(Color.RED);
             ArrayList<Point> tops = new ArrayList<>();
             tops.add(new Point(60, 50));
-            tops.add(new Point(50, 200));
-            tops.add(new Point(300, 300));
             tops.add(new Point(200, 100));
+            tops.add(new Point(300, 300));
+            tops.add(new Point(50, 200));
             MyPolygon polygon = new MyPolygon(tops);
             for (MyLine line : polygon.getLines()){
                 for (Point apoint : line.getPoints()){
@@ -94,7 +94,11 @@ class DrawingPanel extends JPanel {
                 }
             }
             g.setColor(Color.BLUE);
-            MyLine myLine = new MyLine(new Point(50, 60), new Point(300, 600));
+            MyLine myLine = new MyLine(new Point(50, 60), new Point(400, 450));
+            myLine = myLine.clipLine(polygon);
+            for (Point apoint : myLine.getPoints()){
+                g.drawLine(apoint.x, apoint.y, apoint.x, apoint.y);
+            }
 
         }
     }

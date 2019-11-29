@@ -4,7 +4,8 @@ import java.util.Stack;
 
 public class MyPolygon {
     private ArrayList<MyLine> lines = new ArrayList<>();
-    private ArrayList<Point> tops = new ArrayList<>();
+    private ArrayList<Point> tops;
+    PolygonDirection polDir;
 
     MyPolygon(ArrayList<Point> tops) {
         this.tops = tops;
@@ -15,6 +16,34 @@ public class MyPolygon {
         return lines;
     }
     public ArrayList<Point> getTops() {return tops;}
+
+    public PolygonDirection getPolygonDirection() {
+        initPolygonDirection();
+        return polDir;
+    }
+
+    private void initPolygonDirection() {
+        boolean checker1 = true;
+        boolean checker2 = true;
+        for (MyLine line : this.lines) {
+            for (Point point : this.tops) {
+                if (line.relativityPoint(point) == PointPosition.LEFT) {
+                    checker1 = false;
+                }
+            }
+            if (checker1)
+                this.polDir = PolygonDirection.LEFT;
+        }
+        for (MyLine line : this.lines) {
+            for (Point point : this.tops) {
+                if (line.relativityPoint(point) == PointPosition.RIGHT) {
+                    checker2 = false;
+                }
+            }
+            if (checker2)
+                this.polDir = PolygonDirection.RIGHT;
+        }
+    }
 
     private void topsToLines(ArrayList<Point> tops) {
         int len = tops.size();
@@ -32,6 +61,8 @@ public class MyPolygon {
                     checker1 = false;
                 }
             }
+            if (checker1)
+                this.polDir = PolygonDirection.LEFT;
         }
         for (MyLine line : this.lines) {
             for (Point point : this.tops) {
@@ -39,8 +70,13 @@ public class MyPolygon {
                     checker2 = false;
                 }
             }
+            if (checker2)
+                this.polDir = PolygonDirection.LEFT;
         }
-        if (checker1 || checker2) return PolygonProperties.CONVEX;
+        if (checker1 || checker2) {
+            this.polDir = PolygonDirection.ENOTHER;
+            return PolygonProperties.CONVEX;
+        }
         return PolygonProperties.NON_CONVEX;
     }
 

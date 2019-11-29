@@ -164,19 +164,72 @@ public class MyLine {
         return IntersectionPosition.SKEW_NON_CROSS;
     }
 
-    public MyLine clipLine(MyPolygon myPolygon){
+    public MyLine clipLine(MyPolygon polygon){
+        PolygonDirection polygonDirection = polygon.getPolygonDirection();
+        ArrayList<Point> tops = new ArrayList<>();
+        if (polygonDirection == PolygonDirection.RIGHT) {
+            tops.add(polygon.getTops().get(0));
+            for (int i=0; i<polygon.getTops().size()-1; i++) {
+                tops.add(polygon.getTops().get(polygon.getTops().size()-1-i));
+            }
+            polygon = new MyPolygon(tops);
+        }
+        int x11, x22, y11, y22;
         double t0 = 0;
         double t1 = 1;
         double t;
-        int sx = x2 - x1;
-        int sy = y2 - y1;
+        int denom;
+        int num;
+        int sx = this.x2 - this.x1;
+        int sy = this.y2 - this.y1;
         int nx;
         int ny;
-        int n = myPolygon.getTops().size();
+        int n = polygon.getTops().size();
         for (int i = 0; i < n; i++){
-            nx = myPolygon.getTops().get((i+1)%n).y - myPolygon.getTops().get(i).y;
-            ny = myPolygon.getTops().get(i).x - myPolygon.getTops().get((i+1)%n).x;
+            nx = polygon.getTops().get((i+1)%n).y - polygon.getTops().get(i).y;
+            ny = polygon.getTops().get(i).x - polygon.getTops().get((i+1)%n).x;
+            denom = nx*sx+ny*sy;
+            num = nx*(this.x1-polygon.getTops().get(i).x)+ny*(this.y1-polygon.getTops().get(i).y);
+            if (denom != 0) {
+                t = -(double)num/denom;
+                if (denom > 0) {
+                    if (t>t0)
+                        t0 = t;
+                }
+                else {
+                    if (t<t1)
+                        t1 = t;
+                }
+            }
+            else if (num < 0)
+                return this; //what is here???
         }
-        return this;
+        if (t0<=t1) {
+            double ax1 = this.x1 + t0*(this.x2-this.x1);
+            double ay1 = this.y1 + t0*(this.y2-this.y1);
+            double ax2 = this.x1 + t1*(this.x2-this.x1);
+            double ay2 = this.y1 + t1*(this.y2-this.y1);
+            x11 = (int)Math.round(ax1);
+            y11 = (int)Math.round(ay1);
+            x22 = (int)Math.round(ax2);
+            y22 = (int)Math.round(ay2);
+            return new MyLine(new Point(x11, y11), new Point(x22, y22));
+        }
+        return this; //what is here???
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
