@@ -1,11 +1,11 @@
 import java.awt.*;
 import java.util.ArrayList;
 
-public class BeseLine {
+public class BezierLine {
     private Point[] tops;
     private ArrayList<Point> points = new ArrayList<>();
 
-    BeseLine(Point[] tops){
+    BezierLine(Point[] tops){
         if (tops.length == 4) {
             this.tops = tops;
             drawLine();

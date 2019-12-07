@@ -1,8 +1,12 @@
+import javafx.geometry.Point3D;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.*;
 
 class DrawingPanel extends JPanel {
+
+
     public DrawingPanel() {
         setBackground(Color.WHITE);
         setOpaque(true);
@@ -47,9 +51,9 @@ class DrawingPanel extends JPanel {
         }
 
 
-//----------------Bese------------------------------------------//
-        boolean ifDrawBese = false;
-        if (ifDrawBese) {
+//----------------Bezier------------------------------------------//
+        boolean ifDrawBezier = false;
+        if (ifDrawBezier) {
             Point point1;
             Point point2;
             Point point3;
@@ -68,7 +72,7 @@ class DrawingPanel extends JPanel {
             int d2 = 300;
             point4 = new Point(d1, d2);
             Point[] tops = {point1, point2, point3, point4};
-            for (Point point : (new BeseLine(tops)).getPoints()){
+            for (Point point : (new BezierLine(tops)).getPoints()){
                 g.drawLine(point.x, point.y, point.x, point.y);
             }
             g.setColor(Color.BLUE);
@@ -79,7 +83,7 @@ class DrawingPanel extends JPanel {
         }
 
         //----------------Clipping------------------------------------------//
-        boolean ifClipping = true;
+        boolean ifClipping = false;
         if (ifClipping) {
             g.setColor(Color.RED);
             ArrayList<Point> tops = new ArrayList<>();
@@ -101,5 +105,50 @@ class DrawingPanel extends JPanel {
             }
 
         }
+
+        //----------------3D Modelling------------------------------------------//
+        boolean if3DModelling =true;
+        if (if3DModelling) {
+            ArrayList<Point3D> tops = new ArrayList<>();
+            int x0 = 100;
+            int y0 = 100;
+            int z0 = 0;
+            int x1 = 100;
+            int y1 = 100;
+            int z1 = 100;
+            int dx = 0;
+            int dy = 0;
+            tops.add(new Point3D(x0, y0, z0));
+            tops.add(new Point3D(x0+x1, y0, z0));
+            tops.add(new Point3D(x0+x1, y0+y1, z0));
+            tops.add(new Point3D(x0, y0+y1, z0));
+            tops.add(new Point3D(x0+dx, y0+dy, z1));
+            tops.add(new Point3D(x0+x1+dx, y0+dy, z1));
+            tops.add(new Point3D(x0+x1+dx, y0+y1+dy, z1));
+            tops.add(new Point3D(x0+dx, y0+y1+dy, z1));
+            My3DPolygon polygon = new My3DPolygon(tops);
+
+//            double n = 1;
+//            ArrayList<Point> zProjection = polygon.getZProjection(n);
+//            for (Point apoint : zProjection){
+//                g.drawLine(apoint.x, apoint.y, apoint.x, apoint.y);
+//            }
+
+//            double n = 300;
+//            double r = (double)1/400;
+//            ArrayList<Point> singlePointPerspectiveProjection = polygon.getSinglePointPerspectiveProjection(n, r);
+//            for (Point apoint : singlePointPerspectiveProjection){
+//                g.drawLine(apoint.x, apoint.y, apoint.x, apoint.y);
+//            }
+
+
+//            ArrayList<Point> povorotProjection = polygon.povorot(1, 2, 0.5, MovingCircle.fi);
+//            for (Point apoint : povorotProjection){
+//                g.drawLine(apoint.x, apoint.y, apoint.x, apoint.y);
+//            }
+
+
+        }
+
     }
 }

@@ -1,6 +1,5 @@
 
+Zsquid:S2589S"7Remove this expression which always evaluates to "true"(å•îáıÿÿÿÿ8öşÆùä-
+psquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(ÈÊ“À8×Ğ‘Èë-
 gsquid:S25834"DChange this condition so that it does not always evaluate to "false"(š±úÿøÿÿÿÿ8åıÁùä-
 bsquid:S2583"DChange this condition so that it does not always evaluate to "false"(³İÚ8®ÊÂøä-
-Nsquid:S1481a"+Remove this unused "myLine" local variable.(ƒ˜’şÿÿÿÿ8è™ùùä-
-]squid:S1854a":Remove this useless assignment to local variable "myLine".(ƒ˜’şÿÿÿÿ8è™ùùä-
-Zsquid:S2589S"7Remove this expression which always evaluates to "true"(å•îáıÿÿÿÿ8öşÆùä-

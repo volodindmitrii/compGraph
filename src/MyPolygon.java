@@ -7,6 +7,8 @@ public class MyPolygon {
     private ArrayList<Point> tops;
     PolygonDirection polDir;
 
+    MyPolygon(){}
+
     MyPolygon(ArrayList<Point> tops) {
         this.tops = tops;
         topsToLines(tops);
