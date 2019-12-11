@@ -1,6 +1,6 @@
 
-usquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(ÁäÍışÿÿÿÿ8¢¨Éë-
-squid:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(‚äÊ™8«Ä“æÙ-
-“squid:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(Á§Î¡øÿÿÿÿ8§‘¸úä-
-psquid:S37767"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(”Ò²ñ8ƒ÷Šç-
+squid:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(‚äÊ™8«Ä“æÙ-
+psquid:S37769"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(”Ò²ñ8ƒ÷Šç-
 \squid:UselessImportCheck",Remove this unused import 'java.util.Stack'.(ŞÈ†üúÿÿÿÿ8ºîşİ-
+usquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(ÁäÍışÿÿÿÿ8¢¨Éë-
+“squid:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(Á§Î¡øÿÿÿÿ8§‘¸úä-

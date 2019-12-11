@@ -116,8 +116,8 @@ class DrawingPanel extends JPanel {
             int x1 = 100;
             int y1 = 100;
             int z1 = 100;
-            int dx = 0;
-            int dy = 0;
+            int dx = 20;
+            int dy = 30;
             tops.add(new Point3D(x0, y0, z0));
             tops.add(new Point3D(x0+x1, y0, z0));
             tops.add(new Point3D(x0+x1, y0+y1, z0));
@@ -146,6 +146,12 @@ class DrawingPanel extends JPanel {
 //            for (Point apoint : povorotProjection){
 //                g.drawLine(apoint.x, apoint.y, apoint.x, apoint.y);
 //            }
+
+            double n = 1;
+            ArrayList<Point> zProjection = polygon.getNonWireZProjection(n);
+            for (Point apoint : zProjection){
+                g.drawLine(apoint.x, apoint.y, apoint.x, apoint.y);
+            }
 
 
         }

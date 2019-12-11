@@ -19,3 +19,9 @@ I
 src/PolygonDirection.java,2\6\26db822e3155836e4256343974a6e8118b975148
 S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
+C
+src/BezierLine.java,a\d\ad2f67cefd4e76b40a59b1f5bbf8865dcb3e7361
+E
+src/MovingCircle.java,4\6\46f24ea665b7ddba6f34bea277ab118b00c31c25
+D
+src/My3DPolygon.java,b\c\bcdfd0c4a61820b455d136f3a8b8974001e3aba3

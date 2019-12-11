@@ -98,5 +98,56 @@ public class My3DPolygon extends MyPolygon {
         return projection;
     }
 
+    private void projectionNonWireDrawing() {
+        boolean[] ifDraw = new boolean[6];
+        double[] normal = new double[3];
+        double[] zed = {0, 0, 1};
+        for (int i=0; i<4; i++){
+            normal[0] = tops.get(i+1).getX()-tops.get(i).getX();
+            normal[1] = tops.get(i+1).getY()-tops.get(i).getY();
+            normal[2] = tops.get(i+1).getZ()-tops.get(i).getZ();
+            if (zed[0]*normal[0]+zed[1]*normal[1]+zed[2]*normal[2]<=0)
+                ifDraw[i] = true;
+            else ifDraw[i] = false;
+        }
+        normal[0] = tops.get(4).getX()-tops.get(0).getX();
+        normal[1] = tops.get(4).getY()-tops.get(0).getY();
+        normal[2] = tops.get(4).getZ()-tops.get(0).getZ();
+        if (zed[0]*normal[0]+zed[1]*normal[1]+zed[2]*normal[2]<=0)
+            ifDraw[4] = true;
+        else ifDraw[4] = false;
+        normal[0] = tops.get(4).getX()-tops.get(0).getX();
+        normal[1] = tops.get(4).getY()-tops.get(0).getY();
+        normal[2] = tops.get(4).getZ()-tops.get(0).getZ();
+        if (zed[0]*normal[0]+zed[1]*normal[1]+zed[2]*normal[2]<=0)
+            ifDraw[5] = true;
+        else ifDraw[5] = false;
+        for (int i=0; i<4; i++) {
+            if (ifDraw[i]) {
+                projection.addAll((new MyLine(topsPr.get(i), topsPr.get((i+1)%4))).getPoints());
+                projection.addAll((new MyLine(topsPr.get((i+1)%4), topsPr.get(i+4))).getPoints());
+                projection.addAll((new MyLine(topsPr.get(i+4), topsPr.get((i+1)%4+4))).getPoints());
+                projection.addAll((new MyLine(topsPr.get((i+1)%4+4), topsPr.get(i))).getPoints());
+            }
+            if (ifDraw[4]) {
+                projection.addAll((new MyLine(topsPr.get(0), topsPr.get(1))).getPoints());
+                projection.addAll((new MyLine(topsPr.get(1), topsPr.get(2))).getPoints());
+                projection.addAll((new MyLine(topsPr.get(2), topsPr.get(3))).getPoints());
+                projection.addAll((new MyLine(topsPr.get(3), topsPr.get(0))).getPoints());
+            }
+            if (ifDraw[5]) {
+                projection.addAll((new MyLine(topsPr.get(4), topsPr.get(5))).getPoints());
+                projection.addAll((new MyLine(topsPr.get(5), topsPr.get(6))).getPoints());
+                projection.addAll((new MyLine(topsPr.get(6), topsPr.get(7))).getPoints());
+                projection.addAll((new MyLine(topsPr.get(7), topsPr.get(4))).getPoints());
+            }
+        }
+    }
+
+    public ArrayList<Point> getNonWireZProjection(double n) {
+        topsProjection(n);
+        projectionNonWireDrawing();
+        return projection;
+    }
 
 }

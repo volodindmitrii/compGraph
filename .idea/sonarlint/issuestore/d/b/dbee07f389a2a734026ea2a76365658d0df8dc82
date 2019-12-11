@@ -1,5 +1,6 @@
 
-Zsquid:S2589S"7Remove this expression which always evaluates to "true"(å•îáıÿÿÿÿ8öşÆùä-
-psquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(ÈÊ“À8×Ğ‘Èë-
-gsquid:S25834"DChange this condition so that it does not always evaluate to "false"(š±úÿøÿÿÿÿ8åıÁùä-
-bsquid:S2583"DChange this condition so that it does not always evaluate to "false"(³İÚ8®ÊÂøä-
+gsquid:S2583W"DChange this condition so that it does not always evaluate to "false"(å•îáıÿÿÿÿ8Å´œúí-
+Zsquid:S2589o"7Remove this expression which always evaluates to "true"(×¥¤Íÿÿÿÿÿ8‘”¾ûí-
+psquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(ÈÊ“À8×Ğ‘Èë-
+gsquid:S25838"DChange this condition so that it does not always evaluate to "false"(’ìƒ¡üÿÿÿÿ8Å´œúí-
+bsquid:S2583"DChange this condition so that it does not always evaluate to "false"(³İÚ8®ÊÂøä-
