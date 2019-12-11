@@ -12,6 +12,7 @@ public class My3DPolygon extends MyPolygon {
      * затем в таком же порядке на другой.
      */
     private ArrayList<Point3D> tops;
+    private ArrayList<Point3D> tops3DPr = new ArrayList<>();
     private ArrayList<Point> topsPr;
     private ArrayList<Point> projection = new ArrayList<>();
 
@@ -47,6 +48,7 @@ public class My3DPolygon extends MyPolygon {
                 }
             }
             topsPr.add(new Point((int)(C[0]/C[3]), (int)(C[1]/C[3])));
+            tops3DPr.add(new Point3D((int)(C[0]/C[3]), (int)(C[1]/C[3]), (int)(C[2]/C[3])));
         }
     }
 
@@ -70,7 +72,7 @@ public class My3DPolygon extends MyPolygon {
         }
     }
 
-    public ArrayList<Point> povorot(double x, double y, double z, double fi) {
+    public ArrayList<Point> povorot(boolean ifWire, double x, double y, double z, double fi) {
         double nx = x/Math.sqrt(x*x+y*y+z*z);
         double ny = y/Math.sqrt(x*x+y*y+z*z);
         double nz = z/Math.sqrt(x*x+y*y+z*z);
@@ -94,40 +96,63 @@ public class My3DPolygon extends MyPolygon {
         T[3][2] = 0;
         T[3][3] = 1;
         topsProjection(T);
-        projectionDrawing();
+        if (ifWire) projectionDrawing();
+        else projectionNonWireDrawing();
         return projection;
     }
 
     private void projectionNonWireDrawing() {
         boolean[] ifDraw = new boolean[6];
-        double[] normal = new double[3];
+        double[] normal;
+        double[] a = new double[3];
+        double[] b = new double[3];
         double[] zed = {0, 0, 1};
+        Point3D subta;
+        Point3D subtb;
         for (int i=0; i<4; i++){
-            normal[0] = tops.get(i+1).getX()-tops.get(i).getX();
-            normal[1] = tops.get(i+1).getY()-tops.get(i).getY();
-            normal[2] = tops.get(i+1).getZ()-tops.get(i).getZ();
+            subta = tops3DPr.get((i+1)%4).subtract(tops3DPr.get(i));
+            subtb = tops3DPr.get((i+1)%4+4).subtract(tops3DPr.get(i));
+            a[0] = subta.getX();
+            a[1] = subta.getY();
+            a[2] = subta.getZ();
+            b[0] = subtb.getX();
+            b[1] = subtb.getY();
+            b[2] = subtb.getZ();
+            normal = vecMult(a, b);
             if (zed[0]*normal[0]+zed[1]*normal[1]+zed[2]*normal[2]<=0)
-                ifDraw[i] = true;
-            else ifDraw[i] = false;
+                ifDraw[i] = false;
+            else ifDraw[i] = true;
         }
-        normal[0] = tops.get(4).getX()-tops.get(0).getX();
-        normal[1] = tops.get(4).getY()-tops.get(0).getY();
-        normal[2] = tops.get(4).getZ()-tops.get(0).getZ();
+        subta = tops3DPr.get(1).subtract(tops3DPr.get(0));
+        subtb = tops3DPr.get(3).subtract(tops3DPr.get(0));
+        a[0] = subta.getX();
+        a[1] = subta.getY();
+        a[2] = subta.getZ();
+        b[0] = subtb.getX();
+        b[1] = subtb.getY();
+        b[2] = subtb.getZ();
+        normal = vecMult(a, b);
         if (zed[0]*normal[0]+zed[1]*normal[1]+zed[2]*normal[2]<=0)
             ifDraw[4] = true;
         else ifDraw[4] = false;
-        normal[0] = tops.get(4).getX()-tops.get(0).getX();
-        normal[1] = tops.get(4).getY()-tops.get(0).getY();
-        normal[2] = tops.get(4).getZ()-tops.get(0).getZ();
+        subta = tops3DPr.get(7).subtract(tops3DPr.get(4));
+        subtb = tops3DPr.get(5).subtract(tops3DPr.get(4));
+        a[0] = subta.getX();
+        a[1] = subta.getY();
+        a[2] = subta.getZ();
+        b[0] = subtb.getX();
+        b[1] = subtb.getY();
+        b[2] = subtb.getZ();
+        normal = vecMult(a, b);
         if (zed[0]*normal[0]+zed[1]*normal[1]+zed[2]*normal[2]<=0)
             ifDraw[5] = true;
         else ifDraw[5] = false;
         for (int i=0; i<4; i++) {
             if (ifDraw[i]) {
                 projection.addAll((new MyLine(topsPr.get(i), topsPr.get((i+1)%4))).getPoints());
-                projection.addAll((new MyLine(topsPr.get((i+1)%4), topsPr.get(i+4))).getPoints());
-                projection.addAll((new MyLine(topsPr.get(i+4), topsPr.get((i+1)%4+4))).getPoints());
-                projection.addAll((new MyLine(topsPr.get((i+1)%4+4), topsPr.get(i))).getPoints());
+                projection.addAll((new MyLine(topsPr.get((i+1)%4), topsPr.get((i+1)%4+4))).getPoints());
+                projection.addAll((new MyLine(topsPr.get((i+1)%4+4), topsPr.get(i+4))).getPoints());
+                projection.addAll((new MyLine(topsPr.get(i+4), topsPr.get(i))).getPoints());
             }
             if (ifDraw[4]) {
                 projection.addAll((new MyLine(topsPr.get(0), topsPr.get(1))).getPoints());
@@ -148,6 +173,14 @@ public class My3DPolygon extends MyPolygon {
         topsProjection(n);
         projectionNonWireDrawing();
         return projection;
+    }
+
+    private double[] vecMult(double[] a, double[] b){
+        double[] c = new double[3];
+        c[0] = a[1]*b[2]-a[2]*b[1];
+        c[1] = a[0]*b[2]-a[2]*b[0];
+        c[2] = a[0]*b[1]-a[1]*b[0];
+        return c;
     }
 
 }

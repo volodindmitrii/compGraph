@@ -74,7 +74,7 @@ public class MovingCircle extends JComponent implements ActionListener {
             tops.add(new Point3D(x0+dx, y0+y1+dy, z1));
             My3DPolygon polygon = new My3DPolygon(tops);
 
-            ArrayList<Point> povorotProjection = polygon.povorot(1, 1, 0, MovingCircle.fi);
+            ArrayList<Point> povorotProjection = polygon.povorot(false, 1, 2, 1, MovingCircle.fi);
             for (Point apoint : povorotProjection){
                 g2d.drawLine(apoint.x, apoint.y, apoint.x, apoint.y);
             }
